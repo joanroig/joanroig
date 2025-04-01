@@ -1,0 +1,33 @@
+name: Generate Metrix
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Default schedule, runs everyevery day at midnight UTC
+  push:
+    branches:
+      - main
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  generate-metrix:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Generate Metrix GIF
+        uses: joanroig/metrix@main
+        with:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN || secrets.GITHUB_TOKEN }}
+          GITHUB_USERNAME: 'joanroig'
+          # FONT_PATH: 'assets/MxPlus_IBM_BIOS.ttf'
+          # SYMBOL_FONT_PATH: 'assets/MxPlus_IBM_BIOS.ttf'
+          TEXT_COLOR: 'gold'
+          BACKGROUND_COLOR: 'darkgoldenrod'
+          # TITLE_SUFFIX: "'s GitHub Metrix"
+          # ACTIVITY_TEXT: 'Last month commit activity:'
+          # ACTIVITY_DAYS: '30'
+          # WIDTH: '622'
+          # HEIGHT: '350'
+          # GLITCHES: 'true'
