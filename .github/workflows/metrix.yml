@@ -28,6 +28,7 @@ jobs:
           # TITLE_SUFFIX: "'s GitHub Metrix"
           # ACTIVITY_TEXT: 'Last month commit activity:'
           # ACTIVITY_DAYS: '30'
+          # LOOP: 'false'
           # WIDTH: '622'
           # HEIGHT: '350'
           # GLITCHES: 'true'
