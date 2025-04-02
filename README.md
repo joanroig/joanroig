@@ -3,5 +3,5 @@
     <img src="metrix.gif">
   </a>
   <br/>
-  <sub>Infographic generated with <a href="https://github.com/joanroig/metrix"><code>metrix</code></a></sub>
+  <sub>Infographic generated with <a href="https://github.com/joanroig/metrix">joanroig/metrix</a></sub>
 </p>
