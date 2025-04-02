@@ -22,7 +22,7 @@ jobs:
           # SYMBOL_FONT_PATH: 'assets/MxPlus_IBM_BIOS.ttf'
           TEXT_COLOR: 'gold'
           BACKGROUND_COLOR: 'darkgoldenrod'
-          # TITLE_SUFFIX: "'s GitHub Metrix"
+          TITLE_SUFFIX: "'s GitHub Stats"
           # ACTIVITY_TEXT: 'Last month commit activity:'
           # ACTIVITY_DAYS: '30'
           # LOOP: 'false'
