@@ -20,8 +20,9 @@ jobs:
           GITHUB_USERNAME: 'joanroig'
           # FONT_PATH: 'assets/MxPlus_IBM_BIOS.ttf'
           # SYMBOL_FONT_PATH: 'assets/MxPlus_IBM_BIOS.ttf'
-          TEXT_COLOR: 'gold'
-          BACKGROUND_COLOR: 'darkgoldenrod'
+          TEXT_COLOR: 'random'
+          BACKGROUND_COLOR: 'random'
+          MINIMUM_CONTRAST: '2'
           TITLE_SUFFIX: "'s GitHub Stats"
           # ACTIVITY_TEXT: 'Last month commit activity:'
           # ACTIVITY_DAYS: '30'
