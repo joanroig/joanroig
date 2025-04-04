@@ -2,7 +2,7 @@ name: Generate Metrix
 
 on:
   schedule:
-    - cron: '*/1 * * * *' # Runs every minute
+    - cron: '*/5 * * * *' # Runs every 5 minutes
   workflow_dispatch: # Allows manual triggering
 
 jobs:
@@ -16,10 +16,10 @@ jobs:
       - name: Generate Metrix GIF
         uses: joanroig/metrix@main
         with:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN || secrets.GITHUB_TOKEN }} # Do not change – uses PAT if available; otherwise uses GITHUB_TOKEN (public data only)
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN || secrets.GITHUB_TOKEN }} # Do not change - uses PAT if available, otherwise uses GITHUB_TOKEN (public data only)
           GITHUB_USERNAME: '${{ github.actor }}' # Replace with your GitHub username if needed
-          # FONT_PATH: 'assets/MxPlus_IBM_BIOS.ttf' # Path to the primary font file
-          # SYMBOL_FONT_PATH: 'assets/MxPlus_IBM_BIOS.ttf' # Path to the font file used for symbols
+          # FONT_PATH: 'assets/MxPlus_IBM_BIOS.ttf' # Path to the primary font file [currently unsupported unless you fork the repository to add the fonts]
+          # SYMBOL_FONT_PATH: 'assets/MxPlus_IBM_BIOS.ttf' # Path to the font file used for symbols [currently unsupported unless you fork the repository to add the fonts]
           # TEXT_COLOR: 'random' # CSS color name, hex code, or one of: 'random', 'complementary', 'contrasting', 'shade'
           # BACKGROUND_COLOR: 'random' # Same options as TEXT_COLOR
           # MINIMUM_CONTRAST: '2' # Minimum contrast ratio (1 to 21)
