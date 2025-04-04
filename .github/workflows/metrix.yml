@@ -2,8 +2,8 @@ name: Generate Metrix
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Default schedule, runs everyevery day at midnight UTC
-  workflow_dispatch:  # Allows manual triggering
+    - cron: '*/1 * * * *' # Runs every minute
+  workflow_dispatch: # Allows manual triggering
 
 jobs:
   generate-metrix:
@@ -16,17 +16,17 @@ jobs:
       - name: Generate Metrix GIF
         uses: joanroig/metrix@main
         with:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN || secrets.GITHUB_TOKEN }}
-          GITHUB_USERNAME: 'joanroig'
-          # FONT_PATH: 'assets/MxPlus_IBM_BIOS.ttf'
-          # SYMBOL_FONT_PATH: 'assets/MxPlus_IBM_BIOS.ttf'
-          TEXT_COLOR: 'random'
-          BACKGROUND_COLOR: 'random'
-          MINIMUM_CONTRAST: '2'
-          TITLE_SUFFIX: "'s GitHub Stats"
-          # ACTIVITY_TEXT: 'Last month commit activity:'
-          # ACTIVITY_DAYS: '30'
-          # LOOP: 'false'
-          # WIDTH: '622'
-          # HEIGHT: '350'
-          # GLITCHES: 'true'
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN || secrets.GITHUB_TOKEN }} # Do not change – uses PAT if available; otherwise uses GITHUB_TOKEN (public data only)
+          GITHUB_USERNAME: '${{ github.actor }}' # Replace with your GitHub username if needed
+          # FONT_PATH: 'assets/MxPlus_IBM_BIOS.ttf' # Path to the primary font file
+          # SYMBOL_FONT_PATH: 'assets/MxPlus_IBM_BIOS.ttf' # Path to the font file used for symbols
+          # TEXT_COLOR: 'random' # CSS color name, hex code, or one of: 'random', 'complementary', 'contrasting', 'shade'
+          # BACKGROUND_COLOR: 'random' # Same options as TEXT_COLOR
+          # MINIMUM_CONTRAST: '2' # Minimum contrast ratio (1 to 21)
+          # TITLE_SUFFIX: "'s GitHub Metrix" # Suffix text shown after username
+          # ACTIVITY_TEXT: 'Last month commit activity:' # Header text in the graphic
+          # ACTIVITY_DAYS: '30' # Number of days to visualize
+          # LOOP: 'false' # Whether to loop the GIF infinitely
+          # WIDTH: '622' # Width of the output GIF
+          # HEIGHT: '350' # Height of the output GIF
+          # GLITCHES: 'true' # Whether to enable visual glitches
