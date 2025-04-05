@@ -19,20 +19,52 @@ jobs:
       - name: Generate Metrix GIF
         uses: joanroig/metrix@custom-text
         with:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN || secrets.GITHUB_TOKEN }} # Do not change – uses PAT if available; otherwise falls back to GITHUB_TOKEN (limited to public data)
-          GITHUB_USERNAME: '${{ github.actor }}'                         # GitHub username to visualize – can be replaced with any username
-          # FONT_PATH: 'assets/MxPlus_IBM_BIOS.ttf'                      # Path to primary font (currently unsupported unless you fork and embed the font manually)
-          # SYMBOL_FONT_PATH: 'assets/MxPlus_IBM_BIOS.ttf'               # Path to symbol font (currently unsupported unless you fork and embed the font manually)
-          # TEXT_COLOR: 'random'                                         # CSS color name, hex code, or: 'random', 'complementary', 'contrasting', 'shade'
-          # BACKGROUND_COLOR: 'random'                                   # Same options as TEXT_COLOR
-          # MINIMUM_CONTRAST: '2'                                        # Minimum contrast ratio (range: 1–21)
-          # TITLE_SUFFIX: "'s GitHub Metrix"                             # Text appended to the username in the title
-          # ACTIVITY_TEXT: 'Last month commit activity:'                 # Text shown at the top of the activity graphic
-          # ACTIVITY_DAYS: '30'                                          # Number of days to render in the activity chart
-          # LOOP: 'false'                                                # Set to 'true' for an infinite-looping GIF, or 'false' for a one-shot
-          # WIDTH: '622'                                                 # Width of the generated GIF (in pixels)
-          # HEIGHT: '350'                                                # Height of the generated GIF (in pixels)
-          # GLITCHES: 'true'                                             # Set to 'true' to enable glitch effects in the GIF, or 'false' to disable them
+          # Authentication
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN || secrets.GITHUB_TOKEN }}  # DO NOT MODIFY: Retrieves the GitHub token for authentication. Uses PAT if available, falls back to GITHUB_TOKEN for public data.
+          GITHUB_USERNAME: '${{ github.actor }}'                          # GitHub username for displaying data. Replace with any username if needed.
+          
+          # Font Settings
+          FONT_SIZE: '20'                                                 # Font size for the main text.
+          SYMBOL_FONT_SIZE: '20'                                          # Font size for symbols.
+          FONT_PATH: 'assets/MxPlus_IBM_BIOS.ttf'                         # Path to the primary font file.
+          SYMBOL_FONT_PATH: 'assets/MxPlus_IBM_BIOS.ttf'                  # Path to the symbol font file.
+
+          # Color Settings
+          TEXT_COLOR: 'random'                                            # Color of the text. Options include CSS color names, hex codes, or 'random', 'complementary', 'contrasting', 'shade'. Default is 'random'.
+          BACKGROUND_COLOR: 'random'                                      # Background color. Same options as TEXT_COLOR.
+          MINIMUM_CONTRAST: '2'                                           # Minimum contrast ratio between text and background. Range is from 1 to 21.
+
+          # Content Settings
+          TEXT: |                                                         # Text for the Metrix display. Use placeholders for GitHub data like {username}, {created_at}, etc.
+            {username} GitHub Metrix
+            ----------------------
+
+            Joined GitHub: {created_at}
+            Followed by: {followers} Users
+            Owner of: {total_repos} Repos
+
+            Total Commits: {total_commits}
+            Total Stars: {total_stars}
+
+            Data updated: {updated_date}
+          
+          TYPING_CHARACTER: '█'                                           # Character used for the typing effect.
+          ACTIVITY_TEXT: 'Last month commit activity:'                    # Text for the activity section.
+          ACTIVITY_DAYS: '30'                                             # Number of days for the activity chart.
+
+          # Display Settings
+          FPS: '50'                                                       # Frames per second for the GIF. Recommended to be 50 or below.
+          LOOP: 'false'                                                   # Set to 'true' to loop the GIF or 'false' for a single loop.
+          WIDTH: '622'                                                    # Width of the generated GIF.
+          HEIGHT: '356'                                                   # Height of the generated GIF.
+
+          # Glitch Effects
+          GLITCHES: 'true'                                                # Enable or disable glitches in the GIF.
+          MAX_GLITCHES: '4'                                               # Maximum number of glitches that can occur simultaneously.
+          GLITCH_PROBABILITY: '3'                                         # Probability of a glitch happening in a frame, between 0 and 100.
+
+          # Output Settings
+          OUTPUT_FILE_PATH: 'metrix.gif'                                  # CAUTION: If modified, change the path in the step below. Output file path for the generated GIF.
 
       - name: Commit and Push Metrix GIF
         run: |
