@@ -36,8 +36,8 @@ jobs:
 
           # Content Settings
           TEXT: |                                                         # Text for the Metrix display. Use placeholders for GitHub data like {username}, {created_at}, etc.
-            {username} GitHub Metrix
-            ----------------------
+            {username} GitHub Stats
+            ---------------------
 
             Joined GitHub: {created_at}
             Followed by: {followers} Users
