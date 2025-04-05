@@ -33,3 +33,12 @@ jobs:
           # WIDTH: '622'                                                 # Width of the generated GIF (in pixels)
           # HEIGHT: '350'                                                # Height of the generated GIF (in pixels)
           # GLITCHES: 'true'                                             # Set to 'true' to enable glitch effects in the GIF, or 'false' to disable them
+
+      - name: Commit and Push Metrix GIF
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add metrix.gif
+          git commit -m "Update GitHub Metrix GIF" || echo "No changes to commit"
+          git push
+        shell: bash
