@@ -1,7 +1,7 @@
 # GitHub Action template for generating a basic Metrix GIF
 # Source, documentation and examples: https://github.com/joanroig/metrix
 
-name: Generate Metrix
+name: Generate Metrix (minimum setup)
 
 on:
   schedule:
