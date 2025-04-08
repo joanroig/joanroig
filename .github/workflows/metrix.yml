@@ -22,6 +22,10 @@ jobs:
           # Authentication
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN || secrets.GITHUB_TOKEN }}  # DO NOT MODIFY: Retrieves the GitHub token for authentication. Uses PAT if available, falls back to GITHUB_TOKEN for public data.
           GITHUB_USERNAME: '${{ github.actor }}'                          # GitHub username for displaying data. Replace with any username if needed.
+
+          # Logging
+          LOG_LEVEL: 'INFO'                                               # Application log level.
+          FFMPEG_LOG_LEVEL: 'ERROR'                                       # FFmpeg log level
           
           # Font Settings
           FONT_SIZE: '20'                                                 # Font size for the main text.
@@ -35,7 +39,7 @@ jobs:
           MINIMUM_CONTRAST: '2'                                           # Minimum contrast ratio between text and background. Range is from 1 to 21.
 
           # Content Settings
-          TEXT: |                                                         # Text for the Metrix display. Use placeholders for GitHub data like {username}, {created_at}, etc.
+          TEXT: |                                                         # Text for the Metrix display. Use variables for GitHub data like {username}, {created_at}, etc.
             {username}'s GitHub Stats
             -----------------------
 
@@ -49,6 +53,7 @@ jobs:
             Data updated: {updated_date}
           
           TYPING_CHARACTER: '█'                                           # Character used for the typing effect.
+          ACTIVITY: 'true'                                                # Enable or disable the activity section.
           ACTIVITY_TEXT: 'Last month commit activity:'                    # Text for the activity section.
           ACTIVITY_DAYS: '30'                                             # Number of days for the activity chart.
 
