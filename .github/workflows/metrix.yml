@@ -55,13 +55,13 @@ jobs:
           TYPING_CHARACTER: '█'                                           # Character used for the typing effect.
           ACTIVITY: 'true'                                                # Enable or disable the activity section.
           ACTIVITY_TEXT: 'Last month commit activity:'                    # Text for the activity section.
-          ACTIVITY_DAYS: '30'                                             # Number of days for the activity chart.
+          ACTIVITY_DAYS: '29'                                             # Number of days for the activity chart.
 
           # Display Settings
           FPS: '50'                                                       # Frames per second for the GIF. Recommended to be 50 or below.
           LOOP: 'false'                                                   # Set to 'true' to loop the GIF or 'false' for a single loop.
-          WIDTH: '622'                                                    # Width of the generated GIF.
-          HEIGHT: '356'                                                   # Height of the generated GIF.
+          WIDTH: '608'                                                    # Width of the generated GIF.
+          HEIGHT: '342'                                                   # Height of the generated GIF.
 
           # Glitch Effects
           GLITCHES: 'true'                                                # Enable or disable glitches in the GIF.
