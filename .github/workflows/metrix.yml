@@ -5,7 +5,7 @@ name: Generate Metrix
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Runs daily at midnight UTC
+    - cron: "0 0 * * *" # Runs daily at midnight UTC
   workflow_dispatch: # Allows manual triggering
 
 jobs:
@@ -21,26 +21,26 @@ jobs:
         with:
           # Authentication
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN || secrets.GITHUB_TOKEN }}  # DO NOT MODIFY: Retrieves the GitHub token for authentication. Uses PAT if available, falls back to GITHUB_TOKEN for public data.
-          GITHUB_USERNAME: '${{ github.actor }}'                          # GitHub username for displaying data. Replace with any username if needed.
+          GITHUB_USERNAME: "${{ github.actor }}"                          # GitHub username for displaying data. Replace with any username if needed.
 
           # Logging
-          LOG_LEVEL: 'INFO'                                               # Application log level.
-          FFMPEG_LOG_LEVEL: 'ERROR'                                       # FFmpeg log level
+          LOG_LEVEL: "INFO"                                               # Application log level.
+          FFMPEG_LOG_LEVEL: "ERROR"                                       # FFmpeg log level
           
           # Font Settings
-          FONT_SIZE: '20'                                                 # Font size for the main text.
-          SYMBOL_FONT_SIZE: '20'                                          # Font size for symbols.
-          FONT_PATH: 'assets/MxPlus_IBM_BIOS.ttf'                         # Path to the primary font file.
-          SYMBOL_FONT_PATH: 'assets/MxPlus_IBM_BIOS.ttf'                  # Path to the symbol font file.
+          FONT_SIZE: "20"                                                 # Font size for the main text.
+          SYMBOL_FONT_SIZE: "20"                                          # Font size for symbols.
+          FONT_PATH: "assets/MxPlus_IBM_BIOS.ttf"                         # Path to the primary font file.
+          SYMBOL_FONT_PATH: "assets/MxPlus_IBM_BIOS.ttf"                  # Path to the symbol font file.
 
           # Color Settings
-          BACKGROUND_COLOR: 'random-dark'                                 # Color of the background. Options include CSS color names, hex codes, 'random', 'random-light', 'random-dark', 'complementary', 'contrasting', 'shade', 'shade-light', 'shade-dark'.
-          TEXT_COLOR: 'shade-light'                                       # Color of the text. Same options as BACKGROUND_COLOR.
-          MINIMUM_CONTRAST: '2'                                           # Minimum contrast ratio between text and background. Range is from 1 to 21.
+          BACKGROUND_COLOR: "random"                                      # Color of the background. Options include CSS color names, hex codes, "random", "random-light", "random-dark", "complementary", "contrasting", "shade", "shade-light", "shade-dark".
+          TEXT_COLOR: "random"                                            # Color of the text. Same options as BACKGROUND_COLOR.
+          MINIMUM_CONTRAST: "2"                                           # Minimum contrast ratio between text and background. Range is from 1 to 21.
 
           # Content Settings
           TEXT: |                                                         # Text for the Metrix display. Use variables for GitHub data like {username}, {created_at}, etc.
-            {username}'s GitHub Stats
+            {username}"s GitHub Stats
             -----------------------
 
             Joined GitHub: {created_at}
@@ -52,24 +52,24 @@ jobs:
 
             Data updated: {updated_date}
           
-          TYPING_CHARACTER: '█'                                           # Character used for the typing effect.
-          ACTIVITY: 'true'                                                # Enable or disable the activity section.
-          ACTIVITY_TEXT: 'Last month commit activity:'                    # Text for the activity section.
-          ACTIVITY_DAYS: '29'                                             # Number of days for the activity chart.
+          TYPING_CHARACTER: "█"                                           # Character used for the typing effect.
+          ACTIVITY: "true"                                                # Enable or disable the activity section.
+          ACTIVITY_TEXT: "Last month commit activity:"                    # Text for the activity section.
+          ACTIVITY_DAYS: "29"                                             # Number of days for the activity chart.
 
           # Display Settings
-          FPS: '50'                                                       # Frames per second for the GIF. Recommended to be 50 or below.
-          LOOP: 'false'                                                   # Set to 'true' to loop the GIF or 'false' for a single loop.
-          WIDTH: '608'                                                    # Width of the generated GIF.
-          HEIGHT: '342'                                                   # Height of the generated GIF.
+          FPS: "50"                                                       # Frames per second for the GIF. Recommended to be 50 or below.
+          LOOP: "false"                                                   # Set to "true" to loop the GIF or "false" for a single loop.
+          WIDTH: "608"                                                    # Width of the generated GIF.
+          HEIGHT: "342"                                                   # Height of the generated GIF.
 
           # Glitch Effects
-          GLITCHES: 'true'                                                # Enable or disable glitches in the GIF.
-          MAX_GLITCHES: '4'                                               # Maximum number of glitches that can occur simultaneously.
-          GLITCH_PROBABILITY: '3'                                         # Probability of a glitch happening in a frame, between 0 and 100.
+          GLITCHES: "true"                                                # Enable or disable glitches in the GIF.
+          MAX_GLITCHES: "4"                                               # Maximum number of glitches that can occur simultaneously.
+          GLITCH_PROBABILITY: "3"                                         # Probability of a glitch happening in a frame, between 0 and 100.
 
           # Output Settings
-          OUTPUT_FILE_PATH: 'metrix.gif'                                  # CAUTION: If modified, change the path in the step below. Output file path for the generated GIF.
+          OUTPUT_FILE_PATH: "metrix.gif"                                  # CAUTION: If modified, change the path in the step below. Output file path for the generated GIF.
 
       - name: Commit and Push Metrix GIF
         run: |
