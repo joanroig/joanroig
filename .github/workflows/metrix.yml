@@ -40,7 +40,7 @@ jobs:
 
           # Content Settings
           TEXT: |                                                         # Text for the Metrix display. Use variables for GitHub data like {username}, {created_at}, etc.
-            {username}"s GitHub Stats
+            {username}'s GitHub Stats
             -----------------------
 
             Joined GitHub: {created_at}
