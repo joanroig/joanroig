@@ -34,8 +34,8 @@ jobs:
           SYMBOL_FONT_PATH: "assets/MxPlus_IBM_BIOS.ttf"                  # Path to the symbol font file.
 
           # Color Settings
-          BACKGROUND_COLOR: "random"                                      # Color of the background. Options include CSS color names, hex codes, "random", "random-light", "random-dark", "complementary", "contrasting", "shade", "shade-light", "shade-dark".
-          TEXT_COLOR: "random"                                            # Color of the text. Same options as BACKGROUND_COLOR.
+          BACKGROUND_COLOR: "random-dark"                                      # Color of the background. Options include CSS color names, hex codes, "random", "random-light", "random-dark", "complementary", "contrasting", "shade", "shade-light", "shade-dark".
+          TEXT_COLOR: "shade-light"                                            # Color of the text. Same options as BACKGROUND_COLOR.
           MINIMUM_CONTRAST: "2"                                           # Minimum contrast ratio between text and background. Range is from 1 to 21.
 
           # Content Settings
